@@ -5,13 +5,16 @@ async function login() {
   const password = document.getElementById("password").value;
 
   const res = await fetch(API_URL, {
-    method: "POST",
-    body: JSON.stringify({
-      action: "login",
-      nip: nip,
-      password: password
-    })
-  });
+  method: "POST",
+  headers: {
+    "Content-Type": "text/plain"
+  },
+  body: JSON.stringify({
+    action: "login",
+    nip: nip,
+    password: password
+  })
+});
 
   const data = await res.json();
 
