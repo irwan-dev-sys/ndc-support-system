@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dashboard</title>
+  <script src="app.js" defer></script>
+</head>
+<body>
+
+<h2>Dashboard</h2>
+<p id="welcome"></p>
+
+<button onclick="getLogs()">Get Audit Logs</button>
+<button onclick="logout()">Logout</button>
+
+<pre id="result"></pre>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  const token = localStorage.getItem("token");
+  const name = localStorage.getItem("name");
+
+  if (!token) {
+    window.location.href = "index.html";
+  }
+
+  document.getElementById("welcome").innerText =
+    "Welcome, " + name;
+});
+</script>
+
+</body>
+</html>
